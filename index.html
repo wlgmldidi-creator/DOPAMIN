@@ -21,7 +21,7 @@ nav{display:flex;gap:30px;font:400 11px Outfit,sans-serif;letter-spacing:.18em;c
 nav a{opacity:.8;transition:.2s}nav a:hover{opacity:1;color:var(--lav)}
 .menu{display:none;background:none;border:1px solid #d8baff55;color:white;border-radius:30px;padding:8px 12px}
 .hero{min-height:790px;position:relative;display:flex;align-items:center;padding:110px 0 70px;isolation:isolate;overflow:hidden}
-.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#10091fee 0%,#10091fbd 37%,#10091f35 72%,#10091f88),linear-gradient(0deg,#10091f 0%,transparent 32%),url("kodiak.png") center 28%/cover no-repeat;opacity:.85}
+.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,#10091fee 0%,#10091fbd 37%,#10091f35 72%,#10091f88),linear-gradient(0deg,#10091f 0%,transparent 32%),url("assets/kodiak.png") center 28%/cover no-repeat;opacity:.85}
 .hero:after{content:"";position:absolute;inset:14px;z-index:-1;border:1px solid #caa5ff55;pointer-events:none;mask-image:linear-gradient(#000,transparent 95%)}
 .hero-copy{max-width:550px;padding:40px 0 20px}
 .eyebrow{font:500 11px Outfit,sans-serif;letter-spacing:.35em;color:var(--lav);text-transform:uppercase;display:flex;align-items:center;gap:12px}
@@ -68,6 +68,18 @@ footer strong{display:block;font:500 21px "Cormorant Garamond",serif;letter-spac
 @media(max-width:850px){.supporter-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:28px}.hero{min-height:700px}.hero:before{background-position:58% 25%}}
 @media(max-width:600px){.wrap{width:min(100% - 30px,480px)}.nav{height:65px}.menu{display:block}nav{display:none;position:absolute;top:64px;left:15px;right:15px;background:#170d29f5;border:1px solid #b18ade55;padding:18px;flex-direction:column;gap:18px;text-align:center}nav.open{display:flex}.hero{min-height:720px;align-items:flex-end;padding:90px 0 105px}.hero:before{background:linear-gradient(0deg,#10091f 0%,#10091fdb 20%,#10091f35 65%,#10091f55),url("assets/kodiak.png") 53% 20%/auto 78% no-repeat}.hero-copy{padding:0}.hero p{font-size:12px;max-width:320px}.hero-note{bottom:22px;font-size:9px}section{padding:75px 0}.about-grid{grid-template-columns:1fr}.about-art img{height:290px}.about-text h3{font-size:29px}.supporter-grid{gap:10px}.member{padding:7px}.member-info{padding:12px 5px}.member h3{font-size:23px}.member-role{font-size:10px;min-height:48px}.notice-card{padding:22px;align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Floating background-music control */
+.music-control{position:fixed;right:22px;bottom:22px;z-index:20;display:flex;align-items:center;gap:11px;padding:10px 15px 10px 11px;border:1px solid #c9a1f080;border-radius:999px;background:#170d2aeb;backdrop-filter:blur(12px);box-shadow:0 8px 30px #07041088;color:#f4e8ff;cursor:pointer;transition:.25s}
+.music-control:hover{border-color:#e2c5ff;transform:translateY(-2px);box-shadow:0 10px 34px #9d70df35}
+.music-icon{width:31px;height:31px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#a36cdb,#5541a1);font:17px Outfit,sans-serif;color:white}
+.music-label{display:flex;flex-direction:column;gap:2px;text-align:left}
+.music-label strong{font:500 10px Outfit,sans-serif;letter-spacing:.16em}
+.music-label span{font:10px "Noto Serif KR",serif;color:#c7b3df}
+.music-control.playing .music-icon{animation:musicPulse 1.6s ease-in-out infinite}
+@keyframes musicPulse{0%,100%{box-shadow:0 0 0 0 #b98af055}50%{box-shadow:0 0 0 7px #b98af000}}
+@media(max-width:600px){.music-control{right:12px;bottom:12px;padding:8px 12px 8px 9px}.music-icon{width:29px;height:29px}.music-label strong{font-size:9px}}
+
 </style>
 </head>
 <body>
@@ -79,11 +91,54 @@ footer strong{display:block;font:500 21px "Cormorant Garamond",serif;letter-spac
 <section class="about" id="about"><div class="wrap"><div class="section-head"><div class="kicker">THE HEART OF DOPAMIN</div><h2>ABOUT KODIAK</h2><p>우리의 중심, 그리고 함께 만들어 가는 이야기</p></div><div class="about-grid"><div class="about-art"><img src="assets/kodiak.png" alt="DOPAMIN의 중심 캐릭터 코디악"></div><div class="about-text"><span class="kicker">OUR SYMBOL</span><h3>KODIAK · 코디악</h3><p>DOPAMIN은 코디악을 중심으로 모인 사람들의 팬덤 커뮤니티입니다. 서로의 개성과 마음을 존중하며, 일러스트와 이야기, 응원과 추억을 함께 쌓아갑니다.</p><p>보랏빛 밤과 나비의 반짝임처럼, 각자의 빛이 모여 하나의 특별한 세계가 되는 곳. 이곳에서 우리의 이야기를 이어가요.</p><div class="about-motto">“너와 함께하는 순간, 우리의 도파민이 된다.”</div></div></div></div></section>
 <section class="supporters" id="supporters"><div class="wrap"><div class="section-head"><div class="kicker">THE PEOPLE BESIDE KODIAK</div><h2>DOPAMIN SUPPORTERS</h2><p>코디악과 함께 팬덤을 만들어 가는 서포터즈를 소개합니다.</p></div>
 <div class="supporter-grid">
-<article class="member"><div class="member-image"><img src="geomha.png" alt="검하 프로필 일러스트"></div><div class="member-info"><div class="member-num">SUPPORTER 01</div><h3>검하</h3><div class="member-role">총잡이 및 멘탈 지킴이</div><div class="role-mark"></div></div></article>
-<article class="member"><div class="member-image"><img src="mokrin.png" alt="목린 프로필 일러스트"></div><div class="member-info"><div class="member-num">SUPPORTER 02</div><h3>목린</h3><div class="member-role">일러 초대 공장장 및 총잡이</div><div class="role-mark"></div></div></article>
-<article class="member"><div class="member-image"><img src="minki.png" alt="민기 프로필 일러스트"></div><div class="member-info"><div class="member-num">SUPPORTER 03</div><h3>민기</h3><div class="member-role">일러 희롱술사 및 양지 지킴이</div><div class="role-mark"></div></div></article>
-<article class="member"><div class="member-image"><img src="jjeongi.png" alt="쩡이 프로필 일러스트"></div><div class="member-info"><div class="member-num">SUPPORTER 04</div><h3>쩡이</h3><div class="member-role">회장 및 사육사</div><div class="role-mark"></div></div></article>
+<article class="member"><div class="member-image"><img src="assets/geomha.png" alt="검하 프로필 일러스트"></div><div class="member-info"><div class="member-num">SUPPORTER 01</div><h3>검하</h3><div class="member-role">총잡이 및 멘탈 지킴이</div><div class="role-mark"></div></div></article>
+<article class="member"><div class="member-image"><img src="assets/mokrin.png" alt="목린 프로필 일러스트"></div><div class="member-info"><div class="member-num">SUPPORTER 02</div><h3>목린</h3><div class="member-role">일러 초대 공장장 및 총잡이</div><div class="role-mark"></div></div></article>
+<article class="member"><div class="member-image"><img src="assets/minki.png" alt="민기 프로필 일러스트"></div><div class="member-info"><div class="member-num">SUPPORTER 03</div><h3>민기</h3><div class="member-role">일러 희롱술사 및 양지 지킴이</div><div class="role-mark"></div></div></article>
+<article class="member"><div class="member-image"><img src="assets/jjeongi.png" alt="쩡이 프로필 일러스트"></div><div class="member-info"><div class="member-num">SUPPORTER 04</div><h3>쩡이</h3><div class="member-role">회장 및 사육사</div><div class="role-mark"></div></div></article>
 </div></div></section>
 <section class="notice" id="notice"><div class="wrap"><div class="section-head"><div class="kicker">STAY CONNECTED</div><h2>OUR LITTLE UNIVERSE</h2><p>함께 응원하고, 기록하고, 오래도록 기억할 순간들.</p></div><div class="notice-card"><div><h3>Coming together, shining together.</h3><p>DOPAMIN의 새로운 소식과 이벤트를 이곳에서 만나보세요.<br>커뮤니티 링크와 공지 기능은 추후 연결할 수 있습니다.</p></div><span style="font:30px 'Cormorant Garamond';color:#c9a4f2">✦</span></div></div></section>
 </main><footer><div class="wrap"><strong>DOPAMIN</strong>OFFICIAL FAN COMMUNITY · KODIAK & SUPPORTERS<br>© DOPAMIN. MADE WITH VIOLET LIGHT.</div></footer>
+
+<button class="music-control" id="musicToggle" type="button" aria-label="배경 음악 재생" aria-pressed="false">
+  <span class="music-icon" id="musicIcon" aria-hidden="true">♫</span>
+  <span class="music-label"><strong id="musicState">PLAY MUSIC</strong><span>DOPAMIN · BGM</span></span>
+</button>
+<audio id="dopaminAudio" src="assets/dopamin-bgm.mp3" loop preload="none"></audio>
+<script>
+(() => {
+  const audio = document.getElementById('dopaminAudio');
+  const button = document.getElementById('musicToggle');
+  const state = document.getElementById('musicState');
+  const icon = document.getElementById('musicIcon');
+  button.addEventListener('click', async () => {
+    if (audio.paused) {
+      try {
+        await audio.play();
+        button.classList.add('playing');
+        button.setAttribute('aria-pressed', 'true');
+        button.setAttribute('aria-label', '배경 음악 일시정지');
+        state.textContent = 'NOW PLAYING';
+        icon.textContent = 'Ⅱ';
+      } catch (error) {
+        state.textContent = 'TAP TO PLAY';
+        button.setAttribute('aria-label', '배경 음악 재생');
+      }
+    } else {
+      audio.pause();
+      button.classList.remove('playing');
+      button.setAttribute('aria-pressed', 'false');
+      button.setAttribute('aria-label', '배경 음악 재생');
+      state.textContent = 'PLAY MUSIC';
+      icon.textContent = '♫';
+    }
+  });
+  audio.addEventListener('ended', () => {
+    button.classList.remove('playing');
+    button.setAttribute('aria-pressed', 'false');
+    state.textContent = 'PLAY MUSIC';
+    icon.textContent = '♫';
+  });
+})();
+</script>
+
 </body></html>
